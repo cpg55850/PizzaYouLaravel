@@ -17,4 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::resource('pizza', 'PizzaController', [
+    'only' => ['index', 'show']
+]);
+
 Auth::routes();
