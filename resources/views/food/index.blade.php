@@ -5,7 +5,7 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title">
-                Pizza
+                Food Items
             </h1>
         </div>
     </div>
@@ -29,14 +29,18 @@
                 <p>${{$food->price}}</p>
                 <hr>
                 <h2 class="has-text-weight-semibold">Quantity:</h2>
-                <div class="select">
-                    <select name="quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </div>
+                <form action="/add-to-cart/{{$food->id}}" method="post">
+                    @csrf
+                    <div class="select">
+                        <select name="food_quantity">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <input class="button is-primary" type="submit" value="Go">
+                </form>
 
             </div>
         </div>

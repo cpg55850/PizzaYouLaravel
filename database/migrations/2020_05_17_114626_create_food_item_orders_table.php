@@ -14,11 +14,14 @@ class CreateFoodItemOrdersTable extends Migration
     public function up()
     {
         Schema::create('food_item_orders', function (Blueprint $table) {
-            $table->foreignId('food_orders');
-            $table->foreignId('users');
-            $table->foreignId('food_item');
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('food_item_id');
             $table->integer('quantity');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('food_item_id')->references('id')->on('food_items')->onDelete('cascade');
         });
     }
 

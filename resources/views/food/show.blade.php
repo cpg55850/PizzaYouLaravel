@@ -10,7 +10,7 @@
                         <div>
                             <figure class="image">
                                 <img class="is-rounded" style="height: 256px; width: 256px;"
-                                    src="/images/{{$food->image_url}}">
+                            src="{{URL::to(images/$food->image_url)}}">
                             </figure>
                         </div>
                     </div>

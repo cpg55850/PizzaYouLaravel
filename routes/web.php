@@ -13,12 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
+
+Route::get('/profile', 'ProfileController@index');
+
+Route::get('/cart', 'CartController@index');
+Route::post('/cart', 'CartController@submitOrder')->name('submitOrder');
+Route::post('/add-to-cart/{id}', 'CartController@addToCart');
 
 Route::resource('pizza', 'PizzaController', [
     'only' => ['index', 'show']
 ]);
+
+Route::resource('drink', 'DrinkController', [
+    'only' => ['index', 'show']
+]);
+
+Route::resource('orders', 'OrderController');
 
 Auth::routes();

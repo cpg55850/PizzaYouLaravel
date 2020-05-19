@@ -43,8 +43,12 @@
 
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item">
+                    <a href="/profile" class="navbar-item">
                         Profile
+                    </a>
+
+                    <a href="/cart" class="navbar-item">
+                        Shopping Cart {{ Session::has('cart') ? '(' . Session::get('cart')->totalQty . ')' : '' }}
                     </a>
 
                     <div class="navbar-item has-dropdown is-hoverable">

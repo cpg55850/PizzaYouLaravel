@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FoodItem;
 
-class PizzaController extends Controller
+class DrinkController extends Controller
 {
     public function index()
     {   // pizzayou.test/pizza
-        $foods = FoodItem::all()->where('food_category', '1');
+        $foods = FoodItem::all()->where('food_category', '2');
         // $pizzas = $foods->where('food_category')
         return view('food.index')->with('foods', $foods);
     }
